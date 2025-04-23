@@ -6,6 +6,8 @@ namespace TileFrameInfLoopDetector
 {
 	public class TileFrameInfLoopDetector : Mod
 	{
+        private TileFrameInfLoopDetectorConfig _config;
+
         private static bool _loadingWorld = false;
         private static readonly Dictionary<Point, int> _calledCount = new Dictionary<Point, int>(8400 * 2400);
         private static readonly HashSet<Point> _infLoopTiles = new HashSet<Point>();
@@ -14,6 +16,8 @@ namespace TileFrameInfLoopDetector
 
         public override void Load()
         {
+            _config = ModContent.GetInstance<TileFrameInfLoopDetectorConfig>();
+
             On.Terraria.IO.WorldFile.LoadWorld += HackLoadWorld;
             On.Terraria.WorldGen.TileFrame += HackTileFrame;
         }
@@ -29,6 +33,10 @@ namespace TileFrameInfLoopDetector
 
         private void HackTileFrame(On.Terraria.WorldGen.orig_TileFrame orig, int i, int j, bool resetFrame, bool noBreak)
         {
+            if (_config.safeMode)
+            {
+                return;
+            }
             if (!_loadingWorld)
             {
                 orig(i, j, resetFrame, noBreak);
@@ -40,7 +48,7 @@ namespace TileFrameInfLoopDetector
                 _calledCount.Add(tilePosition, 0);
             }
             _calledCount[tilePosition]++;
-            if (_calledCount[tilePosition] >= 100)
+            if (_calledCount[tilePosition] >= _config.upperLimit)
             {
                 if (!_infLoopTiles.Contains(tilePosition))
                 {

@@ -1,0 +1,15 @@
+Mods: {
+	TileFrameInfLoopDetector: {
+		Configs: {
+			Header: {
+			}
+			Main: {
+				Title: "Config"
+				SafeMode_Label: "Safe Mode"
+				SafeMode_Tooltip: "Note that This option will ignore infinite loop detection and prioritize running the game\nForced stops calling WorldGen.TileFrame()\nThis option may be useful if the game crashes on playing\nNote also that it also stops adjusting the appearance of blocks if turns on\nOff by default"
+				UpperLimit_Label: "Upper limit for calling the method"
+				UpperLimit_Tooltip: "[10-1000]\nNote that small value may cause false detection, large value may cause stack overflow earlier than detection\n100 by default"
+			}
+		}
+	}
+}
