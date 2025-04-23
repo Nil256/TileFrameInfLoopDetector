@@ -1,0 +1,3 @@
+displayName = WorldGen.TileFrame Infinity Loop Detector
+author = Nil256
+version = 0.1
