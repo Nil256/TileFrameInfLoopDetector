@@ -4,7 +4,12 @@ by Nil256
 
 ----------------------------------------
 
-This mod detects infinity loop by calling WorldGen.TileFrame() on loading world and makes world loadable
+Note that it's not necessarily that this mod can make all world loadable
+Note also that this mod does not fix worlds, needs to break or do something to tiles which occurred infinity loop if fixing
+
+----------------------------------------
+
+This mod will detect infinity loop caused by calling WorldGen.TileFrame() on loading world and make world loadable
 Tiles caused infinity loop will be shown on the map as the exclamation mark
 
 This mod also has function "Safe Mode"
