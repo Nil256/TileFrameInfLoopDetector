@@ -1,1 +1,15 @@
-WorldGen.TileFrame Infinity Loop Detector is a pretty cool mod, it does...this. Modify this file with a description of your mod.
+WorldGen.TileFrame Infinity Loop Detector 
+
+by Nil256
+
+----------------------------------------
+
+This mod detects infinity loop by calling WorldGen.TileFrame() on loading world and makes world loadable
+Tiles caused infinity loop will be shown on the map as the exclamation mark
+
+This mod also has function "Safe Mode"
+Safe Mode can stop calling WorldGen.TileFrame()
+
+Note that this mod is for debugging or fixing world, not recommended to enable on usual playing
+
+----------------------------------------
